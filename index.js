@@ -6,13 +6,13 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-// Enable PUT & DELETE from forms
+// To Enable PUT & DELETE from forms
 app.use(methodOverride("_method"));
 
 let tasks = [];
 let idCounter = 1;
 
-// Show tasks (with optional filter)
+// Show tasks (with filter)
 app.get("/", (req, res) => {
     let filter = req.query.priority || "All";
     let filteredTasks = (filter === "All") 
@@ -26,7 +26,7 @@ app.post("/add", (req, res) => {
     let { text, priority } = req.body;
     if (text.trim() === "") {
         return res.send("<script>alert('Task cannot be empty!'); window.location='/';</script>");
-    }
+    }    
     tasks.push({ id: idCounter++, text, priority, completed: false });
     res.redirect("/");
 });
