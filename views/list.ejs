@@ -38,7 +38,7 @@
                     <div class="task-item">
                         <!-- Toggle Complete -->
                         <form action="/toggle/<%= task.id %>" method="post" style="display:inline;">
-                            <button type="submit" class="toggle-btn"><%= task.completed ? "✅" : "⭕" %></button>
+                            <button type="submit" class="toggle-btn"><%= task.completed ? "Done" : "NotDone" %></button>
                         </form>
 
                         <!-- Editable Text -->
